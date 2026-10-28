@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf9f6">
+  <meta name="description" content="NOVA — a little space to understand your emotions.">
+
+  <title>NOVA — Understand what you feel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- INTRO: NOVA LOGO -->
+  <div class="intro" id="intro">
+    <img src="images/nova-logo.png" alt="NOVA logo" class="intro-logo">
+  </div>
+
+  <!-- PAGE TRANSITION: ORIGINAL CALLIGRAPHY SWAN -->
+  <div class="transition" id="transition" aria-hidden="true">
+    <img src="images/swan-calligraphy.png" alt="" class="transition-swan">
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a class="brand" href="#home" data-page="home" aria-label="NOVA Home">
+      <img src="images/nova-logo.png" alt="NOVA">
+    </a>
+
+    <nav class="navigation" id="navigation" aria-label="Main navigation">
+      <a href="#home" data-page="home" data-i18n="navHome">Home</a>
+      <a href="#emotions" data-page="emotions" data-i18n="navEmotions">Emotions</a>
+      <a href="#about" data-page="about" data-i18n="navAbout">About Us</a>
+      <a href="#diary" data-page="diary" data-i18n="navDiary">Diary</a>
+    </nav>
+
+    <div class="header-actions">
+      <select id="language" aria-label="Choose language">
+        <option value="en">EN</option>
+        <option value="kk">ҚАЗ</option>
+        <option value="ru">РУС</option>
+      </select>
+
+      <button class="menu-button" id="menuButton" type="button"
+              aria-label="Open menu" aria-expanded="false"
+              aria-controls="navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app">
+
+    <!-- HOME -->
+    <section class="page active" id="home">
+      <div class="hero container">
+        <div class="hero-content reveal">
+          <p class="eyebrow" data-i18n="heroEyebrow">
+            A LITTLE SPACE TO FEEL
+          </p>
+
+          <h1>
+            <span data-i18n="heroLine1">A safe space</span>
+            <span data-i18n="heroLine2">for your</span>
+            <em data-i18n="heroAccent">emotions</em>
+          </h1>
+
+          <p class="hero-description" data-i18n="heroDescription">
+            NOVA is a place where you can be honest with yourself,
+            feel, understand, and heal.
+          </p>
+
+          <a href="#emotions" data-page="emotions" class="outline-button">
+            <span data-i18n="explore">Explore</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <div class="hero-art reveal">
+          <img src="images/white-swan.png"
+               alt="An elegant white swan"
+               class="hero-swan">
+          <span class="hero-star" aria-hidden="true">✦</span>
+        </div>
+      </div>
+
+      <div class="home-emotions container reveal">
+        <div class="section-heading">
+          <h2 data-i18n="feelingToday">What are you feeling today?</h2>
+          <p data-i18n="feelingSubtitle">
+            Every feeling deserves to be understood.
+          </p>
+        </div>
+
+        <div class="home-card-grid" id="homeCards"></div>
+      </div>
+
+      <div class="home-about container reveal">
+        <span class="small-star" aria-hidden="true">✦</span>
+        <p data-i18n="homeAboutText">
+          Two different stories, one shared dream.
+        </p>
+        <a href="#about" data-page="about" class="text-link">
+          <span data-i18n="discoverStory">Discover our story</span> ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- EMOTIONS -->
+    <section class="page" id="emotions">
+      <div class="container page-content">
+        <div class="page-heading reveal">
+          <p class="eyebrow">NOVA · EMOTION LAB</p>
+          <h1 data-i18n="emotionsTitle">Emotions</h1>
+          <p data-i18n="emotionsSubtitle">
+            Some emotions are not the enemy. They are a message.
+          </p>
+        </div>
+
+        <div class="emotion-grid reveal" id="allCards"></div>
+      </div>
+    </section>
+
+    <!-- ARTICLE -->
+    <section class="page" id="article">
+      <div class="container article-container">
+        <a href="#emotions" data-page="emotions" class="back-link">
+          ← <span data-i18n="backToEmotions">Back to Emotions</span>
+        </a>
+
+        <div class="article-header">
+          <p class="eyebrow">NOVA · EMOTION LAB</p>
+          <h1 id="articleTitle">Anxiety</h1>
+          <p id="articleSubtitle"></p>
+        </div>
+
+        <div class="article-body" id="articleBody"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="page" id="about">
+      <div class="container page-content">
+        <div class="page-heading reveal">
+          <p class="eyebrow">THE STORY BEHIND NOVA</p>
+          <h1 data-i18n="aboutTitle">About Us</h1>
+          <p data-i18n="aboutSubtitle">
+            Two different stories, one shared dream —
+            to create a space where emotions are heard.
+          </p>
+        </div>
+
+        <div class="about-layout reveal">
+          <div class="about-art">
+            <img src="images/nova-logo.png"
+                 alt="NOVA calligraphy swan">
+          </div>
+
+          <div class="about-story">
+            <h2 data-i18n="ourStory">Our story</h2>
+            <p data-i18n="aboutStory1"></p>
+            <p data-i18n="aboutStory2"></p>
+            <p data-i18n="aboutStory3"></p>
+          </div>
+        </div>
+
+        <div class="about-meaning reveal">
+          <span class="small-star" aria-hidden="true">✦</span>
+          <h2 data-i18n="whyNova">Why NOVA?</h2>
+          <p data-i18n="whyNovaText"></p>
+          <p data-i18n="dingStory"></p>
+          <p data-i18n="starStory"></p>
+          <span class="signature">alone but never lonely ✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIARY -->
+    <section class="page" id="diary">
+      <div class="container page-content">
+        <div class="page-heading reveal">
+          <p class="eyebrow">YOUR PRIVATE SPACE</p>
+          <h1 data-i18n="diaryTitle">Diary</h1>
+          <p data-i18n="diarySubtitle">
+            Your thoughts. Your feelings. Your space.
+          </p>
+        </div>
+
+        <div class="diary-layout reveal">
+          <form class="diary-form" id="diaryForm">
+            <h2 data-i18n="newEntry">A new entry</h2>
+
+            <label for="emotionInput" data-i18n="emotionLabel">
+              What are you feeling?
+            </label>
+            <input id="emotionInput" type="text" maxlength="80"
+                   required placeholder="Name your emotion"
+                   data-i18n-placeholder="emotionPlaceholder">
+
+            <label for="intensityInput" data-i18n="intensityLabel">
+              How intense is it?
+            </label>
+            <div class="intensity-row">
+              <input id="intensityInput" type="range"
+                     min="1" max="5" value="3">
+              <span id="intensityValue">3 / 5</span>
+            </div>
+
+            <label for="thoughtInput" data-i18n="thoughtsLabel">
+              What's on your mind?
+            </label>
+            <textarea id="thoughtInput" rows="6"
+                      maxlength="3000" required
+                      placeholder="Write freely..."
+                      data-i18n-placeholder="thoughtsPlaceholder"></textarea>
+
+            <button type="submit" class="primary-button">
+              <span data-i18n="saveEntry">Save entry</span> ↗
+            </button>
+
+            <p class="diary-privacy" data-i18n="diaryPrivacy">
+              Entries are stored in this browser on this device.
+            </p>
+          </form>
+
+          <div class="diary-history">
+            <h2 data-i18n="yourEntries">Your entries</h2>
+            <div id="entryList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">NOVA ✦</span>
+      <span data-i18n="footerText">
+        A little space to understand your emotions.
+      </span>
+      <span>© NOVA 2026</span>
+    </div>
+  </footer>
+
+</body>
+</html>
